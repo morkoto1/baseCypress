@@ -10,6 +10,7 @@ describe('Buy TV test case', () => {
   const TV_SECTION_TEXT = 'TV, foto, audio-video'
   const MOST_EXPENSIVE_FILTER_TEXT = 'Od nejdražšího'
   const TV_URL = 'tv-foto-audio-video'
+  const TEELEVIZE_TEXT = 'Televize'
 
 
   before(() => {
@@ -29,9 +30,12 @@ describe('Buy TV test case', () => {
     alzaTVSection = new AlzaTVSection()
     alzaTVSection.el.url().should('include', TV_URL)
 
-    // Scroll to TVs section
-    alzaTVSection.categoryTile.contains('Televize').scrollIntoView().click()
+    // Select TV section
+    alzaTVSection.categoryTile.contains(TEELEVIZE_TEXT).scrollIntoView().click()
+    
+    // Scroll into TV browsing section 
     alzaTVSection.browsingSection.scrollIntoView().isVisible()
+    
     // Change filter
     alzaTVSection.filterTabs.contains(MOST_EXPENSIVE_FILTER_TEXT).click()
     alzaTVSection.filterTabs.contains(MOST_EXPENSIVE_FILTER_TEXT).el.parents().find('.ui-tabs-tab').should('have.attr', 'aria-expanded','false')

@@ -29,11 +29,6 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
 		return this
 	}
 
-	public isNotVisible(): BaseComponent<T> {
-		this.el.should('not.be.visible')
-		return this
-	}
-
 	public wait(timeMs = 1000): BaseComponent<T> {
 		cy.wait(timeMs)
 		return this
@@ -46,16 +41,6 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
 
 	public contains(text: string | number | RegExp): BaseComponent<T> {
 		this.el.contains(text)
-		return this
-	}
-
-	public reload(): BaseComponent<T> {
-		cy.reload()
-		return this
-	}
-
-	public containsText(text: string | number | RegExp): BaseComponent<T> {
-		this.el.should('be.visible').contains(text)
 		return this
 	}
 
