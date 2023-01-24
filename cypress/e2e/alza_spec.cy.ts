@@ -62,5 +62,6 @@ describe('Buy TV test case', () => {
     // alzaShoppingCart.basketLink.find('.count').shouldHaveText('2')
 
     cy.wait(1000)
+    cy.contains(15165)
   })
 })

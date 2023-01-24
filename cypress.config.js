@@ -8,6 +8,10 @@ module.exports = defineConfig({
     requestTimeout: 90000,
     baseUrl: 'https://www.alza.cz',
     experimentalStudio: true,
+    reporter: 'cypress-mochawesome-reporter',
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
   },
 });
 
